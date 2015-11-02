@@ -11,6 +11,7 @@ class Dejavu(object):
 
     SONG_ID = "song_id"
     SONG_NAME = 'song_name'
+    DIRECTORY = 'Directory'
     CONFIDENCE = 'confidence'
     MATCH_TIME = 'match_time'
     OFFSET = 'offset'
@@ -146,6 +147,7 @@ class Dejavu(object):
         if song:
             # TODO: Clarify what `get_song_by_id` should return.
             songname = song.get(Dejavu.SONG_NAME, None)
+
         else:
             return None
 
@@ -159,6 +161,7 @@ class Dejavu(object):
             Dejavu.CONFIDENCE : largest_count,
             Dejavu.OFFSET : int(largest),
             Dejavu.OFFSET_SECS : nseconds,
+            Dejavu.DIRECTORY: song.get(Database.FIELD_SONG_DIRECTORY),
             Database.FIELD_FILE_SHA1 : song.get(Database.FIELD_FILE_SHA1, None),}
         return song
 
