@@ -121,7 +121,7 @@ class SQLDatabase(Database):
 
     SELECT_SONGS = """
         SELECT %s, %s, HEX(%s) as %s FROM %s WHERE %s = 1;
-    """ % (Database.FIELD_SONG_ID, Database.FIELD_SONGNAME, Database.FIELD_FILE_SHA1, Database.FIELD_FILE_SHA1,
+    """ % (Database.FIELD_SONG_ID, Database.FIELD_SONG_DIRECTORY, Database.FIELD_FILE_SHA1, Database.FIELD_FILE_SHA1,
            SONGS_TABLENAME, FIELD_FINGERPRINTED)
 
     # drops
